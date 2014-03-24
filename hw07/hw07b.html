@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Assignment: Homework 7</title>
+<link href="../css/style1.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<style type="text/css">
+
+.rr {
+        background-color: #ff0000;
+      }
+
+.gg {
+        background-color: #00ff00;
+      }
+
+.bold {
+	font-weight: bold;
+	}
+
+.italic {
+	font-style: italic;
+	}
+
+.underline {
+	text-decoration: underline;
+	}
+
+.font8 {
+    font-size: 8px;
+}
+	
+.font14 {
+    font-size: 14px;
+}
+
+.font24 {
+    font-size: 24px;
+}
+
+.lucida{
+	font-family: "Lucida Console";
+}
+
+.arial{
+	font-family: "arial";
+}
+
+.tmr{
+	font-family: "Times New Roman";
+}
+
+.white {
+    background-color: white;
+    color: black;
+}
+
+.black {
+    background-color: black;
+    color: white;
+}
+
+</style>
+<script type="text/javascript">
+// Font Size Changer Function
+function fontSizeChanger(){
+var fSize = document.getElementById("fSize");
+var fontSize = $('#fontSize').val();
+fSize.className = fontSize;
+
+}
+
+// Font Style Changer
+function fontWeightChanger(x){
+var fSize = document.getElementById("fSize");	
+// Changes to bold font
+if(x == 0)
+	fSize.className = "bold";
+// Changes to italic font
+else if (x == 1)
+	fSize.className = "italic";
+// Changes to underline style font
+else if (x == 2)
+	fSize.className = "underline";
+}
+
+// Font Family Changer
+function fontFamilyChanger(){
+var fSize = document.getElementById("fSize");
+// Grabs font family based on drop down menu
+var fontFamily = $('#fontFamily').val();
+fSize.className = fontFamily;	
+}
+
+// Background Color Changer
+function changeBG(x){
+// Changes to blue BG
+if(x == 0)
+	fSize.className = "black";
+// Changes to red BG	
+else if (x == 1)
+	fSize.className = "white";	
+}
+</script>
+
+</head>
+
+<body >
+
+	<nav> 
+		HW1 | 
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw2_133.html">HW2</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw3_133.html">HW3</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw4_133.html">HW4</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw5_133.html">HW5</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">HW6</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">HW7</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw8_133.html">HW8</a> 
+	</nav>
+
+	<br><br>
+	
+	<h1><a href = "http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">Homework 7</a></h1>
+	
+	<form>
+    	<table id="fSize">
+            <tr>
+            	<td class="title">Font Size</td>
+                <td class="width">
+                <select name="fontSize" id="fontSize" onchange="fontSizeChanger()" class="width100 center">
+                    <option value="font8">8px</option>
+                    <option value="font14">14px</option>
+                    <option value="font24">24px</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+            	<td class="title">Font Weight</td>
+                <td>
+                    <input type="radio" name="weight" onClick="fontWeightChanger(0)" value="b"> Bold <br>
+                    <input type="radio" name="weight" onClick="fontWeightChanger(1)" value="i"> Italic <br>
+                    <input type="radio" name="weight" onClick="fontWeightChanger(2)" value="u"> Underline <br>
+                </td>
+            </tr>
+            <tr>
+            	<td class="title">Font Family</td>
+                <td class="width">
+                <select name="fontFamily" id="fontFamily" onChange="fontFamilyChanger()">
+                	<option value="" selected>Select One</option>
+                	<option value="lucida">Lucida Console</option>
+                    <option value="arial">Arial</option>
+                    <option value="tmr">Times New Roman</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+            	<td colspan="2" class="center">
+                	<input type="button" value="Black" onClick="changeBG(0)" class="tag green">
+                	<input type="button" value="White" onClick="changeBG(1)" class="tag blue">
+				</td>
+        </table>
+        </form>
+
+
+<footer class="footer">
+
+	<p>
+		<a href="http://validator.w3.org/check?uri=referer">
+		<img style="border:0;width:28px;height:31px" src="http://hills.ccsf.edu/~zbazarra/cnit133/img/html5.jpg" alt="HTML5"></a>
+
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+
+		</a>
+	</p>
+
+
+</footer>
+
+</body>
+</html>

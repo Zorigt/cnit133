@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Assignment: Homework 8</title>
+<link href="../css/style1.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+	function process(str)
+{
+	var ajaxRequest; // The variable that makes Ajax possible!
+		try{ // Opera 8.0+, Firefox, Safari
+			ajaxRequest = new XMLHttpRequest();
+		}
+		catch (e){ // Internet Explorer Browsers
+			try{
+				ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+			}
+			catch (e) {
+				try{
+					ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				catch (e){
+					alert("Your browser broke!");// Something went wrong
+					return false;
+				}
+			}
+		}
+
+// Create a function that will receive data sent from the server
+
+	ajaxRequest.onreadystatechange= function(){
+		if(ajaxRequest.readyState == 4) {
+			var theState = ajaxRequest.responseText.split(",") ;
+			
+			document.getElementById("name").value = theState[0];
+			document.getElementById("capital").value = theState[1];
+			document.getElementById("population").value = theState[2];
+		}
+	}
+	ajaxRequest.open("GET","../../state.php?stcode="+str.toUpperCase(), true);
+	ajaxRequest.send(null);
+}
+
+</script>
+</head>
+
+<body >
+
+	<nav> 
+		HW1 | 
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw2_133.html">HW2</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw3_133.html">HW3</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw4_133.html">HW4</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw5_133.html">HW5</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">HW6</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">HW7</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw8_133.html">HW8</a> 
+	</nav>
+
+	<br><br>
+	
+	<h1><a href = "http://hills.ccsf.edu/~zbazarra/cnit133/hw8_133.html">Homework 8</a></h1>
+	<form>
+    	<table>
+            <tr>
+            	<td>State Code</td>
+                <td><input type="text" id="code" name="code" onChange="process(this.value)"></td>
+            </tr>
+            <tr>
+            	<td>State Name</td>
+                <td><input type="text" id="name" name="name"></td>
+            </tr>
+            <tr>
+            	<td>State Capital</td>
+                <td><input type="text" id="capital" name="capital"></td>
+            </tr>
+            <tr>
+            	<td>State Population</td>
+                <td><input type="text" id="population" name="population"></td>
+            </tr>
+            <tr>
+            	<td colspan="2"><input type="reset" value="reset">
+            </tr>
+        </table>
+     </form>
+
+	
+
+<footer class="footer">
+
+	<p>
+		<a href="http://validator.w3.org/check?uri=referer">
+		<img style="border:0;width:28px;height:31px" src="http://hills.ccsf.edu/~zbazarra/cnit133/img/html5.jpg" alt="HTML5"></a>
+
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+
+		</a>
+	</p>
+
+
+</footer>
+
+</body>
+</html>

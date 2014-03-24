@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Assignment: Homework 6</title>
+<link href="../css/style1.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+	
+
+	function roundIt(){
+	var num = parseFloat(document.getElementById("userInput").value);
+		if (!isNaN(num) && num != ""){	
+			
+			// Output results and calling objects
+			document.getElementById("results").innerHTML = "You entered " + num + ".\n" + 
+				"Rounded to the nearest integer using math floor: " + roundToInteger(num) + 
+				"\nRounded to the nearest tenth using math floor: " +  roundToTenths(num) + 
+				"\nRounded to the nearest hundredths using math floor: " + roundToHundredths(num) + 
+				"\nRounded to the nearest thousandths using math floor: " + roundToThousandths(num);
+		} else {
+			document.getElementById("results").innerHTML = 'Please Enter a Valid Number'
+		}
+	}
+
+	// Round to Integer Object
+	function roundToInteger(x)
+	{
+		return(Math.floor(x));
+	}
+
+	// Round to Tenths Object
+	function roundToTenths(x)
+	{
+		return(Math.floor( x * 10 + .5 ) / 10);
+	}
+
+	//Round to Hundredths Object
+	function roundToHundredths(x)
+	{
+		return(Math.floor( x * 100 + .5 ) / 100);
+	}
+
+	// Round to Thousandths Object
+	function roundToThousandths(x)
+	{
+		return(Math.floor( x * 1000 + .5 ) / 1000);
+	}
+
+</script>
+</head>
+
+<body >
+
+	<nav> 
+		HW1 | 
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw2_133.html">HW2</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw3_133.html">HW3</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw4_133.html">HW4</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw5_133.html">HW5</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">HW6</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">HW7</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw8_133.html">HW8</a> 
+	</nav>
+
+	<br><br>
+	
+	<h1><a href = "http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">Homework 6</a></h1>
+	
+	<form name="myForm" id="myForm">
+		<table>
+
+		<tr>
+			<td><input type ="text" name="userInput" id="userInput"></td><td>
+			<button type ="button" onclick="roundIt()">Round Number</button></td>
+		</tr>
+		<tr>
+			<td colspan="2"><textarea name="results" id="results" rows="6" style="width: 500px"></textarea></td>
+		</tr>
+
+		<tr>
+
+			<td><input type="reset" value="reset"></td><td></td>
+		</tr>
+		</table>
+
+	</form>
+	
+
+	
+
+<footer class="footer">
+
+	<p>
+		<a href="http://validator.w3.org/check?uri=referer">
+		<img style="border:0;width:28px;height:31px" src="http://hills.ccsf.edu/~zbazarra/cnit133/img/html5.jpg" alt="HTML5"></a>
+
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+
+		</a>
+	</p>
+
+
+</footer>
+
+</body>
+</html>

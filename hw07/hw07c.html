@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Assignment: Homework 7</title>
+<link href="../css/style1.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<style>
+
+#login {
+	width: 300px;
+	 margin: 0px auto;
+}
+
+
+#open {
+	margin: 0;
+	cursor: pointer;
+	background: rgb(255,255,255);
+	color: rgb(58,80,123);
+	padding: 5px 0 2px 30px;
+width: 300px;
+}
+
+#login .close {
+	
+	background-color: rgb(110,138,195);	
+}
+
+#open:hover {
+	color: rgb(0,0,0);
+	background-color: rgb(110,138,195);	
+}
+
+#login form {
+	padding: 10px 10px 10px 10px;
+	display: none;	
+	background-color: rgb(255,255,255);
+width: 310px;
+}
+#login label {
+	display: inline-block;
+	width: 100px;
+	text-align:right;
+	margin: 0 15px 0 0;
+	color: rgb(58,80,123);
+}
+#login input {
+	font-size: 14px;	
+}
+#login #button {
+	margin-left: 50px;	
+}
+</style>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#open').toggle(
+      function() {
+	     $('#login form').slideDown(300);
+	     $(this).addClass('close');
+	  },
+	  function() {
+		 $('#login form').fadeOut(600);
+	     $(this).removeClass('close');
+      }
+  ); // end toggle
+}); // end ready
+</script>
+
+
+<script type="text/javascript">
+
+function checkpass() {
+
+    var errormsg = "Password is incorrect";
+    var pass = document.myform.password.value;
+    
+    if (pass !== "obama") {
+
+       var htmlOutput = "<b style='color: white;'>Password is incorrect!</b>";
+
+	document.getElementById("errorMsg").innerHTML = htmlOutput;
+         
+        document.myform.password.value = "";
+        document.myform.password.focus();
+        return false;
+   }
+    else
+        window.location='hw07cc.html';
+
+
+ 
+
+}
+
+function res() {
+
+document.getElementById("errorMsg").innerHTML = "";
+document.myform.password.focus();
+
+}
+
+
+</script>
+
+</head>
+
+<body  >
+
+	<nav> 
+		HW1 | 
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw2_133.html">HW2</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw3_133.html">HW3</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw4_133.html">HW4</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw5_133.html">HW5</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">HW6</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">HW7</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw8_133.html">HW8</a> 
+	</nav>
+
+	<br><br>
+	
+	<h1><a href = "http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">Homework 7</a></h1>
+	
+	<div id="login">
+<p id="open">Login</p>
+
+<form id="myform" name="myform" method="post">
+
+
+	<p>
+		<label for="password">Password: </label>
+		<input type="text" name="password" id="password">
+	</p>
+	<p>
+		<input type="button" name="button" id="button" value="Submit" onclick="checkpass();">
+                <input type="reset" value="Reset" onclick="res()">
+	</p>
+</form>
+</div>
+
+
+<br />
+<div id="errorMsg"></div>
+<br />
+
+	
+
+<footer class="footer">
+
+	<p>
+		<a href="http://validator.w3.org/check?uri=referer">
+		<img style="border:0;width:28px;height:31px" src="http://hills.ccsf.edu/~zbazarra/cnit133/img/html5.jpg" alt="HTML5"></a>
+
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+
+		</a>
+	</p>
+
+
+</footer>
+
+</body>
+</html>

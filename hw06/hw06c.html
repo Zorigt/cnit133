@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Assignment: Homework 6</title>
+<link href="../css/style1.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jquery.maskedinput.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+jQuery(function($){
+   $("#phone").mask("(999) 999-9999");
+});
+</script>
+
+<script type="text/javascript">
+	function splitIt(){
+		var phone = document.getElementById("phone").value;
+		if (phone != ''){	
+			
+			// Splitting user input
+			var tokens = phone.split(/[\()\s\-]/);
+			
+			// Output data tokens
+			document.getElementById('areaCode').value=tokens[1];
+			document.getElementById('firstThree').value=tokens[3];
+			document.getElementById('lastFour').value=tokens[4];
+			
+		} else {
+			alert("Enter some phone number");
+		}
+	}
+
+	
+
+	function callDate(){
+		var current = new Date();
+		document.writeln("" + current.toString() + "<br />");
+		document.writeln("" + current.toLocaleString() + "<br />");
+		document.writeln("" + current.toUTCString() + "<br />");
+		document.writeln("Difference: " + (current.getTimezoneOffset() / 60 - 3)+ "<br /><hr>");	
+	}
+
+</script>
+</head>
+
+<body >
+
+	<nav> 
+		HW1 | 
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw2_133.html">HW2</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw3_133.html">HW3</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw4_133.html">HW4</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw5_133.html">HW5</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">HW6</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">HW7</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw8_133.html">HW8</a> 
+	</nav>
+
+	<br><br>
+	
+	<h1><a href = "http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">Homework 6</a></h1>
+		
+		<form>
+        	<table>
+                <tr>
+                	<td colspan="2" >
+                    <script type="text/javascript">callDate();</script>
+                    </td>
+                </tr>
+                <tr>
+                	<td>Enter Phone Number:</td>
+                    <td><input type="text" name="phone" id="phone"></td>
+                </tr>
+                <tr>
+                	<td >Area Code</td>
+                    <td><input type="text" id="areaCode" disabled></td>
+                </tr>
+                <tr>
+                	<td >First Three</td>
+                    <td><input type="text" id="firstThree" disabled></td>
+                </tr>
+                <tr>
+                	<td >Last Four</td>
+                    <td><input type="text" id="lastFour" disabled></td>
+                </tr>
+                <tr>
+                	<td colspan="2" >
+                    	<input type="button" value="Split" onClick="splitIt()">
+                    	<input type="reset" value="Reset" >
+					</td>
+            </table>
+            </form>
+
+
+	
+
+<footer class="footer">
+
+	<p>
+		<a href="http://validator.w3.org/check?uri=referer">
+		<img style="border:0;width:28px;height:31px" src="http://hills.ccsf.edu/~zbazarra/cnit133/img/html5.jpg" alt="HTML5"></a>
+
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+
+		</a>
+	</p>
+
+
+</footer>
+
+</body>
+</html>

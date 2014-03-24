@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Functions</title>
+<link href="../css/style1.css" rel="stylesheet" type="text/css">
+<!-- <link href="../style1.css" rel="stylesheet" type="text/css"> -->
+<script type="text/javascript" src="validate.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- the following script is needed for jquery validation of input -->
+<script type="text/javascript" src="http://fog.ccsf.edu/~srubin/validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("#changeDisplay").click(function(){
+		$("textarea").css({
+		  "color":"white",
+		  "background-color":"#98bf21",
+		  "font-family":"Arial",
+		  "font-size":"20px",
+		  "padding":"5px"
+		});
+	  });
+	
+	$("#creditLimit").validate({ 
+		rules:
+		{
+			acctNum: { required: true, number: true, min: 0},
+			cdtLimit: { required: true, number: true, min: 0},
+			beginBalance: { required: true, number: true, min: 0},
+			totalCharged: { required: true, number: true, min: 0},
+			totalCredited: { required: true, number: true, min: 0},
+			summary: { required: true, number: true, min: 0}
+		}
+	});
+});
+
+function process(){
+	if ($("#creditLimit").valid()){
+		var myAcctNum, myCdtLimit, myBeginBal, myTotalCh, myTotalCr, mySummary, myTemp;
+		
+		myAcctNum 	= parseInt(document.getElementById("acctNum").value);
+		myCdtLimit	= parseInt(document.getElementById("cdtLimit").value);
+		myBeginBal	= parseInt(document.getElementById("beginBalance").value);
+		myTotalCh	= parseInt(document.getElementById("totalCharged").value);
+		myTotalCr	= parseInt(document.getElementById("totalCredited").value);
+		
+		mySummary = myBeginBal + myTotalCh - myTotalCr;
+	    document.getElementById("summary").value = mySummary;
+		
+		myTemp = myCdtLimit - mySummary;
+		if (myTemp < 0)
+		{
+		    document.getElementById("results").value = "Credit Limit exceeded by " +  myTemp*(-1);
+		}
+		else
+		{
+		    document.getElementById("results").value = "Credit available is " + myTemp;
+		}
+	}
+}
+
+		
+</script>
+
+<style type="text/css"> 
+	input {text-align: right;}
+</style>
+</head>
+<body>
+
+	<nav> 
+		HW1 | 
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw2_133.html">HW2</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw3_133.html">HW3</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw4_133.html">HW4</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw5_133.html">HW5</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">HW6</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">HW7</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw8_133.html">HW8</a> 
+	</nav>
+
+	<br><br>
+	
+	<h3>Homework 3 - Part 3 Credit Limit</h3>
+
+	<br /><br />
+
+	<form name="creditLimit" id="creditLimit">
+		<table>
+		<tr>
+		  <td>Credit Account Summary Account Number:</td>
+		  <td><input type="text" name="acctNum" id="acctNum" size="6"></td>
+		</tr>
+		<tr>
+		  <td>Credit Limit:</td>
+		  <td><input type="text" name="cdtLimit" id="cdtLimit" size="6"></td>
+		</tr>
+		<tr>
+		  <td>Balance at beginning of month:</td>
+		  <td><input type="text" name="beginBalance" id="beginBalance" size="6"></td>
+		</tr>
+		<tr>
+		  <td>Total amount charged this month:</td>
+		  <td><input type="text" name="totalCharged" id="totalCharged" size="6"></td>
+		</tr>
+		<tr>
+		  <td>Total amount of credits this month:</td>
+		  <td><input type="text" name="totalCredited" id="totalCredited" size="6"></td>
+		</tr>
+		<tr>
+		  <td>Summary: The new balance:</td>
+		  <td><input type="text" name="summary" id="summary" disabled="true" size="6"></td>
+		</tr>
+		<tr><td colspan="2">
+		<input type="button" onclick="process()" value="CALCULATE">
+		<input type="reset" value="RESET">
+		</td></tr>
+		<tr><td colspan="2">
+		<textarea name="results" id="results" rows="2" cols="45"></textarea>
+		</td></tr>
+		<tr><td colspan="2">
+		<input type="button" id="changeDisplay"  value="Click to change textarea display">
+		</td></tr>
+		</table>
+	</form>
+	
+	<br>
+	
+	<a href="../hw3_133.html">Back</a>
+	<a href="hw03d.html">Part 4</a>
+	
+<footer class="footer">
+
+	<p>
+		<a href="http://validator.w3.org/check?uri=referer">
+		<img style="border:0;width:28px;height:31px" src="http://hills.ccsf.edu/~zbazarra/cnit133/img/html5.jpg" alt="HTML5"></a>
+
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+
+		</a>
+	</p>
+
+
+</footer>
+
+</body>
+</html>

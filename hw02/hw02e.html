@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Basic Operations</title>
+<script type="text/javascript">
+	function calculate() {
+		document.exchange.pound.value = (document.exchange.uk.value*document.exchange.dollar.value).toFixed(2);
+		document.exchange.cddollar.value = (document.exchange.cd.value*document.exchange.dollar.value).toFixed(2);
+		document.exchange.euro.value = (document.exchange.eu.value*document.exchange.dollar.value).toFixed(2);
+		document.exchange.yen.value = (document.exchange.jp.value*document.exchange.dollar.value).toFixed(2);
+		document.exchange.peso.value = (document.exchange.mx.value*document.exchange.dollar.value).toFixed(2);
+        }
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#flip").hover(function () {
+			$(this).addClass("hilite");
+			}, function () {
+			$(this).removeClass("hilite");
+		});
+		$("#flip").click(function() {
+			$("#panel").slideToggle("slow");
+		});
+		$("#dollar").focus(function() {
+			$(this).css('background-color', 'green');
+		});
+	});
+</script>
+<link href="../css/style1.css" rel="stylesheet" type="text/css">
+<style >
+.hilite { background:#BDBDBD; }
+#panel
+{
+padding:10px;
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+	<nav> 
+		HW1 | 
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw2_133.html">HW2</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw3_133.html">HW3</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw4_133.html">HW4</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw5_133.html">HW5</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">HW6</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">HW7</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw8_133.html">HW8</a> 
+	</nav>
+
+	<br><br>
+
+	 <div id="flip">Click to Show/Hide Instructions</div>
+     <div id="panel">The foreign exchange rates on June 23, 2012
+        <br>Enter a dollar amount in the table below to see the corresponding foreign exchange values
+     </div>
+		<br>
+             
+             <form name="exchange">
+               <table>
+                 <tr><td colspan="3">Monetary Exchange Rates</tr>
+                 <tr>
+				   <td> Currency</td> 
+				   <td> Rate</td> 
+				   <td> Value</td> 
+                 </tr>
+                 
+                 <tr>
+                   <td>British Pound</td>
+                   <td><input type="text" style="text-align: right;" name="uk" value="0.62905" size="8" disabled="true"></td>
+                   <td><input type="text" style="text-align: right;" size="8" name="pound" readonly="true"></td>
+                </tr>
+
+                 <tr>
+                   <td>Canadian Dollar</td>
+                   <td><input type="text" style="text-align: right;" name="cd" value="0.98928" size="8" disabled="true"></td>
+                   <td><input type="text" style="text-align: right;" name="cddollar" size="8" readonly="true"></td>
+                </tr>
+
+                 <tr>
+                   <td>Euro</td>
+                   <td><input type="text" style="text-align: right;" name="eu" value="0.79759" size="8" disabled="true"></td>
+                   <td><input type="text" style="text-align: right;" name="euro" size="8" readonly="true"></td>
+                </tr>
+
+                <tr>
+                   <td>Japanese Yen</td>
+                   <td><input type="text" style="text-align: right;" name="jp" value="78.5461" size="8" disabled="true"></td>
+                   <td><input type="text" style="text-align: right;" name="yen" size="8" readonly="true"></td>
+                </tr>
+ 
+                <tr>
+                   <td>Mexican Peso</td>
+                   <td><input type="text" style="text-align: right;" name="mx" value="13.0729" size="8" disabled="true"></td>
+                   <td><input type="text" style="text-align: right;" name="peso" size="8" readonly="true"></td>
+                </tr>
+
+                <tr>
+                   <td class="boldfont" colspan="2">Enter Amount of U.S. Dollars</td>
+                
+                   <td><input type="text" id="dollar" name="dollar" size="8"></td>
+                </tr>
+  
+              </table>
+
+              <br>
+                <button type="button" onClick="calculate()">CALCULATE</button>
+                <button type="reset" value="Reset">RESET</button>
+            </form>
+			<br>
+		<a href="../hw2_133.html">Back</a>
+        
+	
+<footer class="footer">
+
+	<p>
+		<a href="http://validator.w3.org/check?uri=referer">
+		<img style="border:0;width:28px;height:31px" src="http://hills.ccsf.edu/~zbazarra/cnit133/img/html5.jpg" alt="HTML5"></a>
+
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+
+		</a>
+	</p>
+
+
+</footer>
+
+</body>
+</html>

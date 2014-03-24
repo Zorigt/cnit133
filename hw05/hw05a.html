@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Assignment: Homework 5</title>
+<link href="../css/style1.css" rel="stylesheet" type="text/css">
+<!-- <link href="../style1.css" rel="stylesheet" type="text/css"> -->
+<script type="text/javascript" src="testFunction.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- the following script is needed for jquery tempation of input -->
+<script type="text/javascript" src="http://fog.ccsf.edu/~srubin/testFunction.js"></script>
+
+<script type="text/javascript">
+	function testFunction()
+		{
+			var temp = true;
+
+			if (document.form1.text.value == "")
+			{
+				highlight("text");
+				temp = false;
+			}
+
+			if ((!document.form1.radio[0].checked) && (!document.form1.radio[1].checked))
+			{
+				highlight("radio");
+				temp = false;
+			}
+
+			if ((!document.form1.check[0].checked) && (!document.form1.check[1].checked) && (!document.form1.check[2].checked))
+			{
+				highlight("check");
+				temp = false;
+			}
+
+			if (document.getElementById("dropdown").value == "none")
+			{
+				highlight("drop");
+				temp = false;
+			}
+			
+			
+			if (!temp) 
+			{
+				document.getElementById("error").innerHTML = "<td colspan='2'><span class='highlight'>Complete all areas</span></td>";
+			}
+		}
+	
+	function highlight(id)
+	{
+    var innerHTML = document.getElementById(id).innerHTML;
+   
+    document.getElementById(id).innerHTML = "<span class='highlight'>" + innerHTML + "</span>";
+	}
+</script>
+
+<style>
+.highlight
+{
+background-color:white;
+color: red;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body >
+
+	<nav> 
+		HW1 | 
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw2_133.html">HW2</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw3_133.html">HW3</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw4_133.html">HW4</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw5_133.html">HW5</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">HW6</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">HW7</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw8_133.html">HW8</a> 
+	</nav>
+
+	<br><br>
+	
+	<h1><a href = "http://hills.ccsf.edu/~zbazarra/cnit133/hw5_133.html">Homework 5</a></h1>
+	
+	<p><a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw05/hw05ab.html">Part B</a></p>
+	<form name="form1" method="POST" action="mailto:zbazarra@my.smccd.edu" onSubmit="testFunction()">
+        <table>
+            <tr>
+                <td id="text">Text</td>
+                <td><input type="text" name="text"></td>
+            </tr>
+            <tr>
+                <td id="radio">Radio</td>
+                <td>
+                    <input type="radio" name="radio" value="first">First
+                    <input type="radio" name="radio" value="second">Second
+                </td>
+            </tr>
+            <tr>
+                <td id="drop">Drop down select</td>
+                <td>
+                    <select name="dropdown" id="dropdown">
+                        <option value="none">-Select From Below-</option>
+                        <option value="Na">Na</option>
+                        <option value="Na Na">Na Na</option>
+                        <option value="Na Na Na">Na Na Na ...</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td id="check">Check Box</td>
+                <td>
+                    <input type="checkbox" name="check" value="hi">Hi<br>
+                    <input type="checkbox" name="check" value="hey">Hey<br>
+                    <input type="checkbox" name="check" value="hello">Hello
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Submit this thing">
+                    <input type="reset" value="Reset and Start all over" onclick="window.location.reload();">
+                </td>
+            </tr>
+			
+			<tr id="error"><td></td></tr>
+			
+        </table>
+    </form>
+
+	
+
+<footer class="footer">
+
+	<p>
+		<a href="http://validator.w3.org/check?uri=referer">
+		<img style="border:0;width:28px;height:31px" src="http://hills.ccsf.edu/~zbazarra/cnit133/img/html5.jpg" alt="HTML5"></a>
+
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+
+		</a>
+	</p>
+
+
+</footer>
+
+</body>
+</html>

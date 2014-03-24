@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Assignment: Homework 4 - Looping Statements</title>
+<link href="../css/style1.css" rel="stylesheet" type="text/css">
+<!-- <link href="../style1.css" rel="stylesheet" type="text/css"> -->
+<script type="text/javascript" src="validate.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- the following script is needed for jquery validation of input -->
+<script type="text/javascript" src="http://fog.ccsf.edu/~srubin/validate.js"></script>
+
+<script type="text/javascript">
+	function paycheck()
+		{	var tmp_hours, tmp_rate, tmp_pay;
+			for (var i = 1; i <= 6; i++)
+			{
+
+				tmp_hours = document.getElementById("work_hours" + i).value;
+				tmp_rate = document.getElementById("pay_rate" + i).value;
+				
+
+				
+				if (isNaN(parseFloat(tmp_hours)) || isNaN(parseFloat(tmp_rate)))
+				{
+					document.getElementById("incomplete").innerHTML = "Fill out everything";
+					if(isNaN(tmp_hours || tmp_rate))
+					{
+						document.getElementById("nonNumber").innerHTML = "Enter only numbers";
+					}
+				}
+				
+				else 
+				{
+					if (tmp_hours > 40)
+					{
+						tmp_pay = 40 * tmp_rate + (tmp_hours - 40) * 1.5 * tmp_rate;
+					}
+					else
+					{
+						tmp_pay = tmp_hours * tmp_rate;
+					}
+
+					document.getElementById("total_hours" + i).value 	= tmp_hours;
+					document.getElementById("final_rate" + i).value 	= '$' + parseFloat(tmp_rate).toFixed(2);
+					document.getElementById("gross_pay" + i).value 		= '$' + parseFloat(tmp_pay).toFixed(2);
+				}
+			}
+		}
+</script>
+<style type="text/css"> 
+	input {text-align: right;}
+</style>
+</head>
+<body>
+
+	<nav> 
+		HW1 | 
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw2_133.html">HW2</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw3_133.html">HW3</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw4_133.html">HW4</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw5_133.html">HW5</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">HW6</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">HW7</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw8_133.html">HW8</a> 
+	</nav>
+
+	<br><br>
+	
+	<h1><a href = "http://hills.ccsf.edu/~zbazarra/cnit133/hw4_133.html">Homework 4 - Looping Statements</a></h1>
+	<h2>Part 2</h2>
+				<p id="incomplete"></p>
+				<p id="nonNumber"></p>
+				<form>
+					<table>
+						<tr>
+							<th>Employees</th>
+							<th>Hours Worked</th>
+							<th>Hourly Rate</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td><input type="text" id="work_hours1"></td>
+							<td><input type="text" id="pay_rate1"></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><input type="text" id="work_hours2"> </td>
+							<td><input type="text" id="pay_rate2"> </td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><input type="text" id="work_hours3"> </td>
+							<td><input type="text" id="pay_rate3"> </td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td><input type="text" id="work_hours4"> </td>
+							<td><input type="text" id="pay_rate4"> </td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td><input type="text" id="work_hours5"> </td>
+							<td><input type="text" id="pay_rate5"> </td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td><input type="text" id="work_hours6"> </td>
+							<td><input type="text" id="pay_rate6"> </td>
+						</tr>
+					</table>
+					
+					<input type="button" value="Submit" onclick="paycheck()">
+					<input type="reset" value="Reset" onclick="location.reload()">
+					
+					<table>
+						<tr>
+							<th>Employees</th>
+							<th>Hours Worked</th>
+							<th>Hourly Rate</th>
+							<th>Gross Pay</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td><input type="text" id="total_hours1" disabled></td>
+							<td><input type="text" id="final_rate1" disabled></td>
+							<td><input type="text" id="gross_pay1" disabled></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><input type="text" id="total_hours2" disabled></td>
+							<td><input type="text" id="final_rate2" disabled></td>
+							<td><input type="text" id="gross_pay2" disabled></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><input type="text" id="total_hours3" disabled></td>
+							<td><input type="text" id="final_rate3" disabled></td>
+							<td><input type="text" id="gross_pay3" disabled></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td><input type="text" id="total_hours4" disabled></td>
+							<td><input type="text" id="final_rate4" disabled></td>
+							<td><input type="text" id="gross_pay4" disabled></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td><input type="text" id="total_hours5" disabled></td>
+							<td><input type="text" id="final_rate5" disabled></td>
+							<td><input type="text" id="gross_pay5" disabled></td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td><input type="text" id="total_hours6" disabled></td>
+							<td><input type="text" id="final_rate6" disabled></td>
+							<td><input type="text" id="gross_pay6" disabled></td>
+						</tr>
+					</table>
+				</form>
+	
+<footer class="footer">
+
+	<p>
+		<a href="http://validator.w3.org/check?uri=referer">
+		<img style="border:0;width:28px;height:31px" src="http://hills.ccsf.edu/~zbazarra/cnit133/img/html5.jpg" alt="HTML5"></a>
+
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+
+		</a>
+	</p>
+
+
+</footer>
+
+</body>
+</html>

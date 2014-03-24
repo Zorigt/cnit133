@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Functions</title>
+<link href="../css/style1.css" rel="stylesheet" type="text/css">
+<!-- <link href="../style1.css" rel="stylesheet" type="text/css"> -->
+<script type="text/javascript" src="validate.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- the following script is needed for jquery validation of input -->
+<script type="text/javascript" src="http://fog.ccsf.edu/~srubin/validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#flip").click(function(){
+		$("#panel").slideToggle("slow");
+	});
+  
+	$("#grades").validate({ 
+		rules:
+		{
+			homework: { required: true, number: true, min: 0, max: 100},
+			midterm: { required: true, number: true, min: 0, max: 100},
+			thefinal: { required: true, number: true, min: 0, max: 100},
+			acr: { required: true, number: true, min: 0, max: 100}
+		}
+	});
+});
+
+function process(){
+	if ($("#grades").valid()){
+		var myHW, myMT, myFinal, myACR, myGrade, myResult;
+		myHW = document.getElementById("homework").value;
+		myMT = document.getElementById("midterm").value;
+		myFinal = document.getElementById("thefinal").value;
+		myACR = document.getElementById("acr").value;
+		myGrade = calculatethefinalAverage(myHW, myMT, myFinal, myACR);
+		myResult = myGrade + "% = " + LetterGrade(myGrade);
+		document.getElementById("results").innerHTML=myResult;
+	}
+}
+	
+function calculatethefinalAverage(myHW, myMT, myFinal, myACR){
+	return Math.ceil((.5*myHW) + (.2*myMT) + (.2*myFinal) + (.1*myACR));
+}
+		
+function LetterGrade(myGrade){
+	if (myGrade >= 90){
+		return "A";
+	} else if (myGrade >= 80 && myGrade <= 89){
+		return "B";
+	} else if (myGrade >= 70 && myGrade <= 79){
+		return "C";
+	} else if (myGrade >= 60 && myGrade <= 78){
+		return "D Student must retake the course.";
+	} else if (myGrade >= 0 && myGrade <= 59){
+		return "F Student must retake the course.";
+	}
+}
+</script>
+
+<style type="text/css"> 
+#panel,#flip
+{
+	padding:2px;
+	text-align:center;
+	margin-left:40%; margin-right:40%;
+	background-color:#e5eecc;
+	border:solid 1px #c3c3c3;
+	border-radius: 10px;
+}
+#panel
+{
+	display:none;
+}
+</style>
+</head>
+<body>
+
+	<nav> 
+		HW1 | 
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw2_133.html">HW2</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw3_133.html">HW3</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw4_133.html">HW4</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw5_133.html">HW5</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw6_133.html">HW6</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw7_133.html">HW7</a> |
+		<a href="http://hills.ccsf.edu/~zbazarra/cnit133/hw8_133.html">HW8</a> 
+	</nav>
+
+	<br><br>
+	
+	<form id="grades" name="grades">
+		<table>
+			<tr>
+				<td>HW</td>
+				<td><input type="text" name="homework" id="homework" style="text-align: right;" size="4" autofocus></td>
+			</tr>
+			<tr>
+				<td>Midterm</td>
+				<td><input type="text" name="midterm" id="midterm" style="text-align: right;" size="4"></td>
+			</tr>
+			<tr>
+				<td>Final</td>
+				<td><input type="text" name="thefinal" id="thefinal" style="text-align: right;" size="4"></td>
+			</tr>
+			<tr>
+				<td>ACR</td>
+				<td><input type="text" name="acr" id="acr" style="text-align: right;" size="4"></td>
+			</tr>
+		</table>
+		<hr width="12%">
+		<input type="button" id="calculate" value="CALCULATE" onclick="process()">
+		<input type="reset" value="RESET" onclick="window.location.reload();">
+	</form>
+		<p id="results"></p>
+	
+	<div id="flip">Click to Show/Hide Instructions</div>
+	<div id="panel">The following webpage contains the heading, Student Grades, and uses a script that inputs a student's homework average, mid-term exam score, thefinal exam score, and ACR (all as integers).</div>
+	
+	<br>
+	
+	<a href="../hw3_133.html">Back</a>
+	<a href="hw03b.html">Part 2</a>
+	
+<footer class="footer">
+
+	<p>
+		<a href="http://validator.w3.org/check?uri=referer">
+		<img style="border:0;width:28px;height:31px" src="http://hills.ccsf.edu/~zbazarra/cnit133/img/html5.jpg" alt="HTML5"></a>
+
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+
+		</a>
+	</p>
+
+
+</footer>
+
+</body>
+</html>
